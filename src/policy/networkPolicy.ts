@@ -19,7 +19,7 @@ export const networkPolicy: NetworkPolicy = {
   },
   hosts: {
     // Example (replace with your test hosts later)
-    'api.example.com': {
+    'https://httpbin.org/get': {
       // mode omitted -> defaults to publicKey if pins exist
       pins: ['sha256/CURRENT_PIN==', 'sha256/NEXT_PIN=='],
       failClosed: true,

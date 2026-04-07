@@ -1,5 +1,5 @@
 export { secureStorage } from './storage';
-export type { StoragePolicy } from './storage';
+export * from './storage';
 
 export { secureFetch } from './network';
 export type { SecureFetchOptions } from './network';

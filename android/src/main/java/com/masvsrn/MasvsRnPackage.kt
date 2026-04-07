@@ -1,31 +1,19 @@
 package com.masvsrn
 
-import com.facebook.react.BaseReactPackage
+import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.module.model.ReactModuleInfo
-import com.facebook.react.module.model.ReactModuleInfoProvider
-import java.util.HashMap
+import com.facebook.react.uimanager.ViewManager
 
-class MasvsRnPackage : BaseReactPackage() {
-  override fun getModule(name: String, reactContext: ReactApplicationContext): NativeModule? {
-    return if (name == MasvsRnModule.NAME) {
-      MasvsRnModule(reactContext)
-    } else {
-      null
-    }
+class MasvsRnPackage : ReactPackage {
+
+  override fun createNativeModules(reactContext: ReactApplicationContext)
+    : List<NativeModule> {
+    return listOf(SecureStorageModule(reactContext))
   }
 
-  override fun getReactModuleInfoProvider() = ReactModuleInfoProvider {
-    mapOf(
-      MasvsRnModule.NAME to ReactModuleInfo(
-        name = MasvsRnModule.NAME,
-        className = MasvsRnModule.NAME,
-        canOverrideExistingModule = false,
-        needsEagerInit = false,
-        isCxxModule = false,
-        isTurboModule = true
-      )
-    )
+  override fun createViewManagers(reactContext: ReactApplicationContext)
+    : List<ViewManager<*, *>> {
+    return emptyList()
   }
 }
