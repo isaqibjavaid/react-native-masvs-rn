@@ -1,0 +1,11 @@
+{
+  "summary": { "fail": 0, "warn": 0 },
+  "findings": [
+    {
+      "level": "WARN",
+      "rule": "MASVS-CODE-LOGGING",
+      "file": "src/screens/SomeFile.tsx",
+      "message": "console.log detected. Ensure secrets are not logged in production."
+    }
+  ]
+}
